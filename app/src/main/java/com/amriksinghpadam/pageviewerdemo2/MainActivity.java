@@ -25,17 +25,15 @@ public class MainActivity extends AppCompatActivity {
         nextBtn = findViewById(R.id.nextBtnId);
         previousBtn = findViewById(R.id.previousBtnId);
         dotLayout = findViewById(R.id.dotLayout);
-
         adapter = new MyAdapter(this,nextBtn,previousBtn);
         viewPager.setAdapter(adapter);
-
+        addDot();
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
-
         previousBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,16 +41,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        addDot();
-
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
             @Override
             public void onPageSelected(int position) {
-
                 // call dot method
                 if (position != 0 && position != (dot.length - 1)) {
                     previousBtn.setVisibility(View.VISIBLE);
@@ -72,14 +65,9 @@ public class MainActivity extends AppCompatActivity {
 //                    dot[i].setTextColor(getResources().getColor(R.color.inactiveDotColor));
 //                }
                 dot[position].setTextColor(getResources().getColor(R.color.activeDotColor));
-
             }
-
             @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-
+            public void onPageScrollStateChanged(int state) {}
         });
     }
 
@@ -93,18 +81,11 @@ public class MainActivity extends AppCompatActivity {
             dot[i].setTextColor(getResources().getColor(R.color.inactiveDotColor));
         }
         dot[0].setTextColor(getResources().getColor(R.color.activeDotColor));
-
         if(viewPager.getCurrentItem()==0){
             previousBtn.setVisibility(View.INVISIBLE);
         }
         if(viewPager.getCurrentItem()== dot.length - 1){
             nextBtn.setVisibility(View.INVISIBLE);
         }
-
     }
-
-
-
-
-
 }

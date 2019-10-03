@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -16,7 +15,6 @@ public class MyAdapter extends PagerAdapter {
     private Button nextBtn;
     private Button previousBtn;
     private Context context;
-
 
     MyAdapter(Context context,Button nextBtn, Button previousBtn){
         this.nextBtn = nextBtn;
@@ -51,9 +49,4 @@ public class MyAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
-
-
-
-
-
 }
